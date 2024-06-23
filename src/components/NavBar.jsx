@@ -37,60 +37,50 @@ const NavBar = () => {
   return (
     <div className="relative">
       <div className="px-5 h-16 flex justify-between items-center border-gray-200 border rounded-t-lg py-4 shadow-lg">
-        <div className="cursor-pointer" onClick={openCloseNav}>
-          <RxHamburgerMenu />
+        <div
+          className={`cursor-pointer duration-150 ${
+            isNavOpen ? "rotate-[90deg]" : ""
+          } min-[600px]:hidden`}
+          onClick={openCloseNav}
+        >
+          <RxHamburgerMenu size={25} />
         </div>
 
-        <ul className="flex items-center hidden">
-          {/* <Link to="/">
-          <li
-            className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
-              location.pathname == "/" ? "border-b-2 border-gray-800 " : ""
-            }`}
-          >
-            Home
-          </li>
-        </Link> */}
-          <Link to="/reviewers">
-            <li
-              className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
-                location.pathname.includes("/subject") ||
-                location.pathname == "/reviewers"
-                  ? "border-b-2 border-gray-800 "
-                  : ""
-              }`}
-            >
-              Reviewers
-            </li>
-          </Link>
-          <Link to="/leaks">
-            <li
-              className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
-                location.pathname == "/leaks"
-                  ? "border-b-2 border-gray-800 "
-                  : ""
-              }`}
-            >
-              Leaks
-            </li>
-          </Link>
-          {/* <Link to="/about">
-          <li
-            className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
-              location.pathname == "/about" ? "border-b-2 border-gray-800 " : ""
-            }`}
-          >
-            About
-          </li>
-        </Link> */}
-        </ul>
+        <div className="hidden min-[600px]:block">
+          <ul className="flex ">
+            <Link to="/reviewers">
+              <li
+                className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
+                  location.pathname.includes("/subject") ||
+                  location.pathname == "/reviewers"
+                    ? "border-b-2 border-gray-800 "
+                    : ""
+                }`}
+              >
+                Reviewers
+              </li>
+            </Link>
+            <Link to="/leaks">
+              <li
+                className={`px-4 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg ${
+                  location.pathname == "/leaks"
+                    ? "border-b-2 border-gray-800 "
+                    : ""
+                }`}
+              >
+                Leaks
+              </li>
+            </Link>
+          </ul>
+        </div>
+
         <div>
           <span ref={el} className="text-base font-extralight font-mono"></span>
         </div>
       </div>
 
       <div
-        className={`absolute bottom-auto ${
+        className={`absolute bottom-auto  ${
           isNavOpen ? "block" : "hidden"
         } bg-white shadow-lg border-2 border-gray-300 rounded-b-lg w-full`}
       >
