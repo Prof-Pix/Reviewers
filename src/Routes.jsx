@@ -7,7 +7,6 @@ import Reviewer from "./pages/Reviewer";
 import Leaks from "./pages/Leaks";
 import About from "./pages/About";
 import Subject from "./reviewers_subpages/Subject";
-import Home from "../../react-tutorial/project-challenge/src/screens/Home";
 import Cheatsheets from "./pages/Cheatsheets";
 
 const AppRoutes = () => {
