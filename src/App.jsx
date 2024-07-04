@@ -6,15 +6,18 @@ import HomePage from "./pages/HomePage";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./Routes";
 import NavBar from "./components/NavBar";
+import { Provider } from "./provider/Provider";
 
 function App() {
   return (
-    <div className="flex justify-center w-full">
+    <div className="flex justify-center h-[100dvh]">
       <div className="p-2 w-[80rem]">
-        <Router>
-          <NavBar />
-          <AppRoutes />
-        </Router>
+        <Provider>
+          <Router>
+            <NavBar />
+            <AppRoutes />
+          </Router>
+        </Provider>
       </div>
     </div>
   );

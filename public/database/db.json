@@ -1,0 +1,45 @@
+{
+  "courses": [
+    {
+      "courseCode": "SOCS 001",
+      "courseName": "Life and Works of Rizal",
+      "imageName": "life_and_works_of_rizal",
+      "quizzes": [
+        {
+          "quizName": "Midterm Quiz",
+          "quizLink": "https://quizlet.com/843432309/quiz-midterm-flash-cards/?i=3xldfb&x=1jqt",
+          "quizDescription": "Midterm Quiz for Life and Works of Rizal"
+        },
+        {
+          "quizName": "Chapter 5",
+          "quizLink": "https://quizlet.com/839324988/chapter-5-flash-cards/?i=3xldfb&x=1jqt",
+          "quizDescription": "Chapter 5 Reviewer for Life and Works of Rizal"
+        }
+      ]
+    },
+    {
+      "courseCode": "CS 409",
+      "courseName": "Mobile Computing",
+      "imageName": "mobile_computing",
+      "quizzes": [
+        {
+          "quizName": "Prelim Examination",
+          "quizLink": "https://quizlet.com/828218386/prelim-examination-flash-cards/?i=3xldfb&x=1jqt",
+          "quizDescription": "Mobile Computing Prelim Examination"
+        }
+      ]
+    }
+  ],
+  "cheatsheets": [
+    {
+      "topic": "Structured Query Language (SQL)",
+      "fileName": "sql_cheat_sheet",
+      "description": "This is a cheatsheet for SQL (Structured Query Language) using MySQL."
+    },
+    {
+      "topic": "Git and Github",
+      "fileName": "git_github_cheatsheet",
+      "description": "This is a cheatsheet for Git and Github from supersimpledev (YT)"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { SubjectContext } from "../pages/Reviewer";
 
 const SubjectComponent = ({ imageName, courseCode, courseName }) => {
   const imagePath = `images/${imageName}.jpg`;
