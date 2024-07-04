@@ -16,7 +16,7 @@ const Cheatsheets = () => {
 
   return (
     <div>
-      <div className="px-4 relative h-full">
+      <div className="px-4 relative h-full pb-10">
         <div className="text-center text-3xl p-10 ">
           <h1 className="font-extrabold">Cheat Sheets</h1>
         </div>

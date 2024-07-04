@@ -19,7 +19,7 @@ const Reviewer = () => {
   });
 
   return (
-    <div className="pb-6">
+    <div className="pb-14">
       <div className="text-center text-3xl pt-10 px-10 pb-7 ">
         <h1 className="font-extrabold">Subjects</h1>
       </div>

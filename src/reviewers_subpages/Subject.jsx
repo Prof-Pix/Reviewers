@@ -42,7 +42,7 @@ const Subject = () => {
       {!courseData ? (
         <p>Loading...</p>
       ) : (
-        <div className=" py-10 relative">
+        <div className="pt-10 pb-11 relative">
           <div className="flex justify-end">
             <Link to="/reviewers">
               <div className="flex justify-center items-center mb-4 mr-4 bg-black w-fit rounded-md text-white px-4 py-2 cursor-pointer hover:shadow-lg ">

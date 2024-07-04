@@ -7,7 +7,7 @@ const SearchBar = ({ setSearchText, searchText, placeholderText }) => {
   };
   return (
     <>
-      <div className="flex justify-center items-center fixed bottom-1 w-full max-w-[80rem] pl-5 pr-9 shadow-lg">
+      <div className="flex justify-center items-center fixed bottom-0 w-full max-w-[80rem] pl-5 pr-9 shadow-lg">
         <div className="border-2 h-fit p-3 rounded-l-md bg-white">
           <CiSearch size={16} />
         </div>
