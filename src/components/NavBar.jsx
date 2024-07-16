@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Typed from "typed.js";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { FaNoteSticky } from "react-icons/fa6";
-import { FaRegNoteSticky } from "react-icons/fa6";
+import { FaNoteSticky, FaRegNoteSticky } from "react-icons/fa6";
 
-import { PiDetectiveFill } from "react-icons/pi";
-import { PiDetective } from "react-icons/pi";
+import { PiDetectiveFill, PiDetective } from "react-icons/pi";
 import { AiFillFileZip, AiOutlineFileZip } from "react-icons/ai";
+
+import { IoTimerOutline, IoTimerSharp } from "react-icons/io5";
 
 const largeNavBarStyles =
   "px-3 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg";
@@ -53,19 +53,20 @@ const NavBar = () => {
       typed.destroy();
     };
   }, []);
+
   return (
     <div className="z-50 sticky top-0.5">
       <div className="px-5 h-16 flex justify-between items-center bg-white border-gray-200 border rounded-t-lg py-4 shadow-lg">
         <div
           className={`cursor-pointer duration-150 ${
             isNavOpen ? "rotate-[90deg]" : ""
-          } min-[600px]:hidden`}
+          } min-[690px]:hidden`}
           onClick={openCloseNav}
         >
           <RxHamburgerMenu size={25} />
         </div>
 
-        <div className="hidden min-[600px]:block">
+        <div className={`hidden min-[690px]:block`}>
           <ul className="flex ">
             <Link to="/reviewers">
               <li
@@ -99,6 +100,17 @@ const NavBar = () => {
                 }`}
               >
                 Leaks
+              </li>
+            </Link>
+            <Link to="/timer">
+              <li
+                className={`${largeNavBarStyles} ${
+                  location.pathname == "/timer"
+                    ? "border-b-2 border-gray-800 "
+                    : ""
+                }`}
+              >
+                Timer
               </li>
             </Link>
           </ul>
@@ -171,6 +183,25 @@ const NavBar = () => {
                 )}
               </div>
               <div>Leaks</div>
+            </li>
+          </Link>
+
+          <Link to="/timer" onClick={closeNav}>
+            <li
+              className={`${smallNavBarStyles} ${
+                location.pathname == "/timer"
+                  ? "border-b-2 border-gray-800 "
+                  : ""
+              }`}
+            >
+              <div>
+                {location.pathname == "/timer" ? (
+                  <IoTimerSharp />
+                ) : (
+                  <IoTimerOutline />
+                )}
+              </div>
+              <div>Timer</div>
             </li>
           </Link>
         </ul>

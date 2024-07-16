@@ -1,7 +1,7 @@
 import React from "react";
 import { createContext, useState } from "react";
 
-import data from "../../public/database/db.json";
+import data from "../database/db.json";
 
 const DataContext = createContext();
 

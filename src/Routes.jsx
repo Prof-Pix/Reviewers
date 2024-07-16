@@ -8,6 +8,7 @@ import Leaks from "./pages/Leaks";
 import About from "./pages/About";
 import Subject from "./reviewers_subpages/Subject";
 import Cheatsheets from "./pages/Cheatsheets";
+import TimerPage from "./pages/TimerPage";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AppRoutes = () => {
       <Route path="/cheatsheets" element={<Cheatsheets />} />
       <Route path="/leaks" element={<Leaks />} />
       <Route path="/subject/:subjectname" element={<Subject />} />
+      <Route path="/timer" element={<TimerPage />} />
     </Routes>
   );
 };
