@@ -1,3 +1,4 @@
 # React + Vite
 
-Set of reviewers and cheatsheets.
+React + Vite
+Tailwind CSS
