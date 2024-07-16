@@ -4,8 +4,6 @@ import { MdOutlineTimer } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
 import { v4 as uuidv4 } from "uuid";
 
-import "react-toastify/dist/ReactToastify.css";
-
 const TimerPage = () => {
   const [timers, setTimers] = useState([]);
 
