@@ -3,12 +3,11 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 //Components
 import SubjectComponent from "../components/SubjectComponent";
 
-//Provider
-import { DataContext } from "../provider/Provider";
 import SearchBar from "../components/SearchBar";
+import { useFetchCoursesData } from "../customHooks/useFetchData";
 
 const Reviewer = () => {
-  const { courses } = useContext(DataContext);
+  const { courses } = useFetchCoursesData();
   const [searchText, setSearchText] = useState("");
 
   const filteredCourses = courses?.filter((course) => {

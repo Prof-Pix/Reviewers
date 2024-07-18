@@ -5,12 +5,12 @@ import QuizComponent from "./QuizComponent";
 //For Icons
 import { TiArrowBack } from "react-icons/ti";
 
-import { DataContext } from "../provider/Provider";
 import SearchBar from "../components/SearchBar";
+import { useFetchCoursesData } from "../customHooks/useFetchData";
 
 const Subject = () => {
   const { subjectname } = useParams();
-  const { courses } = useContext(DataContext);
+  const { courses } = useFetchCoursesData();
 
   const [courseData, setCourseData] = useState(null);
   const [courseQuizzes, setCourseQuizzes] = useState([]);

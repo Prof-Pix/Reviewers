@@ -1,13 +1,12 @@
 import React from "react";
-import { useContext } from "react";
 import { useState, useEffect } from "react";
 
-import { DataContext } from "../provider/Provider";
 import CheatSheetComponent from "../reviewers_subpages/CheatSheetComponent";
 import SearchBar from "../components/SearchBar";
+import { useFetchCoursesData } from "../customHooks/useFetchData";
 
 const Cheatsheets = () => {
-  const { cheatSheets } = useContext(DataContext);
+  const { cheatSheets } = useFetchCoursesData();
   const [searchText, setSearchText] = useState("");
 
   const filteredCheatSheets = cheatSheets?.filter((cheatSheet) => {

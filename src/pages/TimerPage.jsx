@@ -1,20 +1,40 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Timer from "../components/Timer";
 import { MdOutlineTimer } from "react-icons/md";
 import { IoIosCloseCircle } from "react-icons/io";
-import { v4 as uuidv4 } from "uuid";
+import { TbClockPlus } from "react-icons/tb";
+
+import { FaLeaf } from "react-icons/fa";
+import { useManageTimers } from "../customHooks/useManageTimer";
 
 const TimerPage = () => {
-  const [timers, setTimers] = useState([]);
+  const { timers, setTimers, handleAddNewTimer, handleDeleteTimer } =
+    useManageTimers();
 
   const inputRef = useRef();
   const dialogRef = useRef();
 
-  const handleAddNewTimer = () => {
-    const newTimer = { id: uuidv4(), name: inputRef.current.value };
-    setTimers((prevTimers) => [...prevTimers, newTimer]);
+  //CRUD [Create, Delete] Operations
+  const handleClickAddNewTimer = () => {
+    //Get the name from the input
+    const name = inputRef.current.value;
+
+    //Perform addition of timers
+    handleAddNewTimer(name);
+
+    //Reset
+    //Clear input field and close the modal
     inputRef.current.value = "";
     closeFormModal();
+  };
+
+  const handleClickDeleteTimer = (id) => {
+    handleDeleteTimer(id);
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    handleClickAddNewTimer();
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,49 +53,44 @@ const TimerPage = () => {
     setIsModalOpen(false);
   };
 
-  const handleDeleteTimer = (id) => {
-    setTimers((prevTimers) => prevTimers.filter((timer) => timer.id != id));
-  };
-
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
-    handleAddNewTimer();
-  };
-
   return (
-    <div className="min-h-[90vh] relative p-3">
-      {timers.length == 0 ? (
-        <div className="flex justify-center h-[85vh] items-center">
-          <p>Add timers to get started!</p>
-        </div>
-      ) : (
-        <div
-          className={`${
-            isModalOpen ? "hidden" : "block"
-          } grid grid-cols-1 gap-2 min-[650px]:grid-cols-2 min-[1000px]:grid-cols-3`}
-        >
-          {timers.map((timer) => {
-            return (
-              <Timer
-                key={timer.id}
-                name={timer.name}
-                handleDelete={() => handleDeleteTimer(timer.id)}
-              />
-            );
-          })}
-        </div>
-      )}
-
+    <div className="min-h-[90vh] w-full relative">
       {/*Floating Button */}
-      <button
-        onClick={toggleFormModal}
-        className={`${
-          isModalOpen ? "invisible" : "visible"
-        } flex items-center gap-x-1 bg-black text-white px-3 py-1 text-base font-light rounded-lg fixed bottom-3 right-3 hover:bg-gray-500 shadow-md transition duration-200`}
-      >
-        <MdOutlineTimer size={20} />
-        <p>Add Timer</p>
-      </button>
+      <div className="flex justify-end z-50 shadow-lg">
+        <button
+          onClick={toggleFormModal}
+          className={`${
+            isModalOpen ? "invisible" : "visible"
+          } flex items-center gap-x-1 bg-black text-white p-4 text-base font-light rounded-lg fixed bottom-3 z-50  hover:bg-gray-500  transition duration-200`}
+        >
+          <TbClockPlus size={30} />
+        </button>
+      </div>
+
+      <div className="mt-5 p-3">
+        {timers.length == 0 ? (
+          <div className="flex justify-center h-[85vh] items-center">
+            <p>Add timers to get started!</p>
+          </div>
+        ) : (
+          <div
+            className={`${
+              isModalOpen ? "hidden" : "block"
+            } grid grid-cols-1 gap-2 min-[650px]:grid-cols-2 min-[1000px]:grid-cols-3`}
+          >
+            {timers.map((timer) => {
+              return (
+                <Timer
+                  key={timer.id}
+                  handleDelete={() => handleClickDeleteTimer(timer.id)}
+                  timers={timers}
+                  componentTimer={timer}
+                />
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       {/*Modal Form*/}
 
