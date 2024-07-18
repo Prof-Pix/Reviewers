@@ -6,10 +6,12 @@ import { TbClockPlus } from "react-icons/tb";
 
 import { FaLeaf } from "react-icons/fa";
 import { useManageTimers } from "../customHooks/useManageTimer";
+import { useGlobalContext } from "../provider/Provider";
 
 const TimerPage = () => {
   const { timers, setTimers, handleAddNewTimer, handleDeleteTimer } =
     useManageTimers();
+  const { theme } = useGlobalContext();
 
   const inputRef = useRef();
   const dialogRef = useRef();
@@ -59,18 +61,23 @@ const TimerPage = () => {
       <div className="flex justify-end z-50 shadow-lg">
         <button
           onClick={toggleFormModal}
-          className={`${
-            isModalOpen ? "invisible" : "visible"
-          } flex items-center gap-x-1 bg-black text-white p-4 text-base font-light rounded-lg fixed bottom-3 z-50  hover:bg-gray-500  transition duration-200`}
+          className={`${isModalOpen ? "invisible" : "visible"} ${
+            theme === "dark" ? "bg-white" : "bg-black"
+          } flex items-center gap-x-1  text-white p-4 text-base font-light rounded-lg fixed bottom-3 z-50  hover:bg-gray-500  transition duration-200`}
         >
-          <TbClockPlus size={30} />
+          <TbClockPlus
+            size={30}
+            color={`${theme === "dark" ? "black" : "white"}`}
+          />
         </button>
       </div>
 
       <div className="mt-5 p-3">
         {timers.length == 0 ? (
           <div className="flex justify-center h-[85vh] items-center">
-            <p>Add timers to get started!</p>
+            <p className={`${theme === "dark" ? "text-white" : "text-black"}`}>
+              Add timers to get started!
+            </p>
           </div>
         ) : (
           <div

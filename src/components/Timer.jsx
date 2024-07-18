@@ -7,9 +7,11 @@ import { GrPowerReset } from "react-icons/gr";
 
 import { useTimer } from "../customHooks/useTimer";
 import { useManageTimers } from "../customHooks/useManageTimer";
+import { useGlobalContext } from "../provider/Provider";
 
 const Timer = ({ handleDelete, componentTimer }) => {
   const { timers, setTimers } = useManageTimers();
+  const { theme } = useGlobalContext();
   const {
     isPlaying,
     elapsedTime,
@@ -40,14 +42,24 @@ const Timer = ({ handleDelete, componentTimer }) => {
         <div className="w-full justify-end flex gap-x-1">
           <button onClick={() => setIsMoreInfoOpen((prev) => !prev)}>
             {isMoreInfoOpen ? (
-              <IoMdArrowDropupCircle size={25} />
+              <IoMdArrowDropupCircle
+                size={25}
+                color={`${theme === "dark" ? "white" : "black"}`}
+              />
             ) : (
-              <IoMdArrowDropdownCircle size={25} />
+              <IoMdArrowDropdownCircle
+                size={25}
+                color={`${theme === "dark" ? "white" : "black"}`}
+              />
             )}
           </button>
         </div>
         <div className="h-10" />
-        <div className="flex gap-x-1 font-bold text-4xl min-[350px]:text-5xl">
+        <div
+          className={`flex gap-x-1 font-bold text-4xl min-[350px]:text-5xl ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
+        >
           <div>
             <p>{padStartFormat(elapsedTime.hours)}</p>
           </div>
@@ -67,20 +79,35 @@ const Timer = ({ handleDelete, componentTimer }) => {
         <div className="h-4" />
 
         <div>
-          <p className="text-lg font-medium">{componentTimer.name}</p>
+          <p
+            className={`text-lg font-medium ${
+              theme === "dark" ? "text-white" : "text-black"
+            }`}
+          >
+            {componentTimer.name}
+          </p>
         </div>
         <div className="h-4" />
 
         <div className="flex items-center gap-x-20 pb-4">
           <button onClick={togglePlayPause}>
             {isPlaying ? (
-              <FaPauseCircle size={40} />
+              <FaPauseCircle
+                size={40}
+                color={`${theme === "dark" ? "white" : "black"}`}
+              />
             ) : (
-              <FaPlayCircle size={40} />
+              <FaPlayCircle
+                size={40}
+                color={`${theme === "dark" ? "white" : "black"}`}
+              />
             )}
           </button>
           <button onClick={handleResetTimer}>
-            <GrPowerReset size={43} />
+            <GrPowerReset
+              size={43}
+              color={`${theme === "dark" ? "white" : "black"}`}
+            />
           </button>
           <button onClick={toggleDelete}>
             <MdDelete size={43} color="red" />

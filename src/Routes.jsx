@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import Reviewer from "./pages/Reviewer";
 import Leaks from "./pages/Leaks";
 import About from "./pages/About";
+import Error from "./pages/Error";
 import Subject from "./reviewers_subpages/Subject";
 import Cheatsheets from "./pages/Cheatsheets";
 import TimerPage from "./pages/TimerPage";
@@ -19,6 +20,7 @@ const AppRoutes = () => {
       <Route path="/leaks" element={<Leaks />} />
       <Route path="/subject/:subjectname" element={<Subject />} />
       <Route path="/timer" element={<TimerPage />} />
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };

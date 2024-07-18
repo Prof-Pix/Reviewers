@@ -5,9 +5,11 @@ import SubjectComponent from "../components/SubjectComponent";
 
 import SearchBar from "../components/SearchBar";
 import { useFetchCoursesData } from "../customHooks/useFetchData";
+import { useGlobalContext } from "../provider/Provider";
 
 const Reviewer = () => {
   const { courses } = useFetchCoursesData();
+  const { theme } = useGlobalContext();
   const [searchText, setSearchText] = useState("");
 
   const filteredCourses = courses?.filter((course) => {
@@ -20,7 +22,13 @@ const Reviewer = () => {
   return (
     <div className="pb-14">
       <div className="text-center text-3xl pt-10 px-10 pb-7 ">
-        <h1 className="font-extrabold">Subjects</h1>
+        <h1
+          className={`font-extrabold ${
+            theme === "dark" ? "text-white" : "text-black"
+          }`}
+        >
+          Subjects
+        </h1>
       </div>
       <div
         className={`px-6 mb-3 w-full ${searchText ? "visible" : "invisible"} `}
@@ -28,7 +36,9 @@ const Reviewer = () => {
         <div>
           {filteredCourses.length != 0 && (
             <div>
-              <p>
+              <p
+                className={`${theme === "dark" ? "text-white" : "text-black"}`}
+              >
                 {`Showing ${filteredCourses.length} ${
                   filteredCourses.length == 1 ? "entry" : "entries"
                 } from ${courses.length} ${
@@ -41,7 +51,9 @@ const Reviewer = () => {
       </div>
       {!filteredCourses.length && (
         <div className="flex justify-center">
-          <p>No courses available.</p>
+          <p className={`${theme === "dark" ? "text-white" : "text-black"}`}>
+            No courses available.
+          </p>
         </div>
       )}
 
