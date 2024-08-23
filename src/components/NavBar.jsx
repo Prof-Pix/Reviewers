@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+
 import Typed from "typed.js";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaNoteSticky, FaRegNoteSticky } from "react-icons/fa6";
@@ -14,13 +14,9 @@ import { useGlobalContext } from "../provider/Provider";
 import SmallCustomLink from "./SmallCustomLink";
 import LargeCustomLink from "./LargeCustomLink";
 
-const largeNavBarStyles =
-  "px-3 py-2 m-2 rounded-t-md duration-200 hover:font-bold text-lg";
-
 const NavBar = () => {
   const { theme, handleSwitchTheme } = useGlobalContext();
   const el = React.useRef(null);
-  const location = useLocation();
 
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -34,7 +30,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobile = window.matchMedia("(max-width: 600px)").matches; // Adjust breakpoint as needed
+      const isMobile = window.matchMedia("(max-width: 850px)").matches; // Adjust breakpoint as needed
       if (!isMobile && isNavOpen) {
         setIsNavOpen(false);
       }
@@ -58,17 +54,16 @@ const NavBar = () => {
     };
   }, []);
 
-  const darkModeBorderBottom = "border-b-2 border-white ";
-  const lightModeBorderBottom = "border-b-2 border-gray-800";
-
   return (
     <div className="z-50 sticky top-0.5">
       <div
-        className={`px-5 h-16 flex justify-between items-center rounded-t-lg py-4 border-gray-200 border  shadow-lg ${
-          theme === "dark" ? "bg-[#111827] text-white" : "bg-white"
+        className={`px-5 h-16 flex justify-between items-center rounded-t-lg py-4 border-gray-200 shadow-lg ${
+          theme === "dark"
+            ? "bg-[#202c47] shadow-[#202c47] shadow-md text-white"
+            : "bg-white"
         }`}
       >
-        <div className="min-[690px]:hidden flex gap-x-4">
+        <div className="min-[850px]:hidden flex gap-x-4">
           <div
             className={`cursor-pointer duration-150 ${
               isNavOpen ? "rotate-[90deg]" : ""
@@ -77,35 +72,56 @@ const NavBar = () => {
           >
             <RxHamburgerMenu size={25} />
           </div>
+
           <button onClick={handleSwitchTheme}>
             {theme === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
           </button>
         </div>
 
-        <div className={`hidden min-[690px]:block`}>
+        <div className={`hidden min-[850px]:block`}>
           <ul className="flex items-center">
-            <button onClick={handleSwitchTheme}>
-              {theme === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
-            </button>
+            <div className="flex items-center pr-3 mr-2 border-r border-black">
+              <button onClick={handleSwitchTheme}>
+                {theme === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
+              </button>
+            </div>
 
             <LargeCustomLink
               to="/reviewers"
               linkName="Reviewers"
+              ActiveIcon={FaNoteSticky}
+              InactiveIcon={FaRegNoteSticky}
               otherTo={"/subject"}
             />
-            <LargeCustomLink to="/cheatsheets" linkName="Cheat Sheets" />
+            <LargeCustomLink
+              to="/cheatsheets"
+              linkName="Cheat Sheets"
+              ActiveIcon={AiFillFileZip}
+              InactiveIcon={AiOutlineFileZip}
+            />
 
-            <LargeCustomLink to="/leaks" linkName="Leaks" />
+            <LargeCustomLink
+              to="/leaks"
+              linkName="Leaks"
+              ActiveIcon={PiDetectiveFill}
+              InactiveIcon={PiDetective}
+            />
 
-            <LargeCustomLink to="timer" linkName="Timer" />
+            <LargeCustomLink
+              to="/timer"
+              linkName="Timer"
+              ActiveIcon={IoTimerSharp}
+              InactiveIcon={IoTimerOutline}
+            />
           </ul>
         </div>
 
         <div>
-          <span ref={el} className="text-base font-extralight font-mono"></span>
+          <span ref={el} className="font-mono text-base font-extralight"></span>
         </div>
       </div>
 
+      {/*Mobile Navbar*/}
       <div
         className={`absolute bottom-auto  ${isNavOpen ? "block" : "hidden"} ${
           theme === "dark" ? "bg-[#1f2937]" : "bg-white"

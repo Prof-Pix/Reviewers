@@ -18,7 +18,7 @@ const AppRoutes = () => {
       <Route path="/reviewers" element={<Reviewer />} />
       <Route path="/cheatsheets" element={<Cheatsheets />} />
       <Route path="/leaks" element={<Leaks />} />
-      <Route path="/subject/:subjectname" element={<Subject />} />
+      <Route path="/subject/:academicYear/:subjectName" element={<Subject />} />
       <Route path="/timer" element={<TimerPage />} />
       <Route path="*" element={<Error />} />
     </Routes>

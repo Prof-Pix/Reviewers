@@ -1,22 +1,23 @@
-import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../provider/Provider";
 
 const SubjectComponent = ({ imageName, courseCode, courseName }) => {
   const imagePath = `images/${imageName}.jpg`;
-  const { theme } = useGlobalContext();
 
+  const { theme } = useGlobalContext();
   return (
-    <Link to={`/subject/${courseName}`}>
-      <div className={`cursor-pointer hover:shadow-lg `}>
-        <div className="w-auto h-[8rem] overflow-hidden rounded-t-lg">
+    <Link to={`/subject/${localStorage.getItem("academicYear")}/${courseName}`}>
+      <div
+        className={`cursor-pointer hover:shadow-xl hover:scale-105 transition-all `}
+      >
+        <div className="w-auto h-[14rem] overflow-hidden rounded-t-lg rounded-b-sm">
           <img
-            className="h-full w-full object-cover"
+            className="object-cover w-full h-full"
             src={imagePath}
             alt={imageName}
           />
         </div>
-        <div className="p-3 border border-gray-300 border-solid border-t-0 rounded-b-lg">
+        {/* <div className="p-3 border border-t-0 border-gray-300 border-solid rounded-b-lg">
           <div>
             <p
               className={`font-bold line-clamp-1 min-h-3 ${
@@ -35,7 +36,7 @@ const SubjectComponent = ({ imageName, courseCode, courseName }) => {
               {courseName}
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </Link>
   );

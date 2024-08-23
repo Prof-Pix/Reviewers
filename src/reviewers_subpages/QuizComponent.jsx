@@ -10,10 +10,12 @@ const QuizComponent = ({ quizData }) => {
   return (
     <div className="mb-4 ">
       <div
-        className={` hover:shadow-md cursor-pointer border-2 border-t-white border-x-white h-fit w-full flex justify-between items-center p-4 ${
-          isOpen
-            ? "border-t-inherit border-x-inherit rounded-t-lg shadow-md"
-            : ""
+        className={`${
+          theme === "dark"
+            ? "border-[#1e2941] hover:shadow-[#1e2941]"
+            : "border-gray-100 hover:shadow-gray-100"
+        } hover:shadow-md  transition-all cursor-pointer border-2 h-fit w-full flex justify-between items-center p-4 ${
+          isOpen && "rounded-t-lg"
         } `}
         onClick={() => setIsOpen((prev) => !prev)}
       >
@@ -41,21 +43,16 @@ const QuizComponent = ({ quizData }) => {
       </div>
 
       {isOpen && (
-        <div className="grid grid-rows-2 p-8 border rounded-b-lg">
+        <div
+          className={`${
+            theme === "dark" ? "border-[#1e2941]" : "border-gray-200"
+          } grid grid-rows-2 p-8 border rounded-b-lg shadow-sm`}
+        >
           <div
-            className={`id grid-cols-2 pb-6 border-dashed border-b-2 max-[800px]:grid-cols-1 max-[800px]:gap-y-5 ${
+            className={`items-center flex pb-6 border-dashed border-b-2 ${
               theme === "dark" ? "border-gray-800" : "border-gray-200"
             }`}
           >
-            <div>
-              <p
-                className={`text-base font-medium ${
-                  theme === "dark" ? "text-white" : "text-black"
-                }`}
-              >
-                Link
-              </p>
-            </div>
             <div>
               <a
                 href={quizData.quizLink}
@@ -71,7 +68,7 @@ const QuizComponent = ({ quizData }) => {
           <div className="grid grid-cols-2 pt-6 max-[800px]:grid-cols-1 max-[800px]:gap-y-5">
             <div>
               <p
-                className={`text-base font-medium ${
+                className={`text-base font-bold ${
                   theme === "dark" ? "text-white" : "text-black"
                 }`}
               >
@@ -80,7 +77,7 @@ const QuizComponent = ({ quizData }) => {
             </div>
             <div>
               <p
-                className={`text-base line-clamp-4 ${
+                className={`text-base font-light line-clamp-4 ${
                   theme === "dark" ? "text-white" : "text-black"
                 }`}
               >

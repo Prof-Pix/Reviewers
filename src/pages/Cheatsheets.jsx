@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 
 import CheatSheetComponent from "../reviewers_subpages/CheatSheetComponent";
 import SearchBar from "../components/SearchBar";
-import { useFetchCoursesData } from "../customHooks/useFetchData";
+import { useFetchData } from "../customHooks/useFetchData";
 import { useGlobalContext } from "../provider/Provider";
 
 const Cheatsheets = () => {
-  const { cheatSheets } = useFetchCoursesData();
+  const { cheatSheets } = useFetchData();
   const { theme } = useGlobalContext();
   const [searchText, setSearchText] = useState("");
 
@@ -17,8 +17,8 @@ const Cheatsheets = () => {
 
   return (
     <div>
-      <div className="px-4 relative h-full pb-10">
-        <div className="text-center text-3xl p-10 ">
+      <div className="relative h-full px-4 pb-10">
+        <div className="p-10 text-3xl text-center ">
           <h1
             className={`font-extrabold ${
               theme === "dark" ? "text-white" : "text-black"

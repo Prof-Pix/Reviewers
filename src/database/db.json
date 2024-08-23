@@ -1,45 +1,65 @@
 {
-  "courses": [
-    {
-      "courseCode": "SOCS 001",
-      "courseName": "Life and Works of Rizal",
-      "imageName": "life_and_works_of_rizal",
-      "quizzes": [
-        {
-          "quizName": "Midterm Quiz",
-          "quizLink": "https://quizlet.com/843432309/quiz-midterm-flash-cards/?i=3xldfb&x=1jqt",
-          "quizDescription": "Midterm Quiz for Life and Works of Rizal"
-        },
-        {
-          "quizName": "Chapter 5",
-          "quizLink": "https://quizlet.com/839324988/chapter-5-flash-cards/?i=3xldfb&x=1jqt",
-          "quizDescription": "Chapter 5 Reviewer for Life and Works of Rizal"
-        }
-      ]
-    },
-    {
-      "courseCode": "CS 409",
-      "courseName": "Mobile Computing",
-      "imageName": "mobile_computing",
-      "quizzes": [
-        {
-          "quizName": "Prelim Examination",
-          "quizLink": "https://quizlet.com/828218386/prelim-examination-flash-cards/?i=3xldfb&x=1jqt",
-          "quizDescription": "Mobile Computing Prelim Examination"
-        }
-      ]
-    }
-  ],
-  "cheatsheets": [
-    {
-      "topic": "Structured Query Language (SQL)",
-      "fileName": "sql_cheat_sheet",
-      "description": "This is a cheatsheet for SQL (Structured Query Language) using MySQL."
-    },
-    {
-      "topic": "Git and Github",
-      "fileName": "git_github_cheatsheet",
-      "description": "This is a cheatsheet for Git and Github from supersimpledev (YT)"
-    }
-  ]
+  "data": {
+    "academicYears": [
+      {
+        "academicYear": "1st Sem A.Y. 2024 - 2025",
+        "courses": [
+          {
+            "courseCode": "CS 002",
+            "courseName": "Advance Object-Oriented Programming",
+            "imageName": "advanced_oop",
+            "quizzes": []
+          },
+          {
+            "courseCode": "CS 003",
+            "courseName": "Computer Architecture and Organization",
+            "imageName": "comp_arch_and_org",
+            "quizzes": [
+              {
+                "quizName": "Prelim Examination",
+                "quizLink": "https://quizlet.com/828218386/prelim-examination-flash-cards/?i=3xldfb&x=1jqt",
+                "quizDescription": "Mobile Computing Prelim Examination"
+              }
+            ]
+          },
+          {
+            "courseCode": "CS 403",
+            "courseName": "intelligent_agents",
+            "imageName": "intelligent_agents",
+            "quizzes": []
+          },
+          {
+            "courseCode": "CS 200",
+            "courseName": "Principles of Programming Languages",
+            "imageName": "ppl",
+            "quizzes": []
+          },
+          {
+            "courseCode": "MATH 009CS",
+            "courseName": "Probability and Statistics (with Lab)",
+            "imageName": "prob_and_stats",
+            "quizzes": [
+              {
+                "quizName": "Module 1 Quiz",
+                "quizLink": "https://knowt.com/flashcards/024ce5bc-c4d9-4787-8782-dee9772004ac",
+                "quizDescription": "Nature of Statistics, Descriptive and Inferential Statistics, Population and Sample, Variables and Measurement, Levels of Measurement, Summation Notation"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "cheatsheets": [
+      {
+        "topic": "Structured Query Language (SQL)",
+        "fileName": "sql_cheat_sheet",
+        "description": "This is a cheatsheet for SQL (Structured Query Language) using MySQL."
+      },
+      {
+        "topic": "Git and Github",
+        "fileName": "git_github_cheatsheet",
+        "description": "This is a cheatsheet for Git and Github from supersimpledev (YT)"
+      }
+    ]
+  }
 }

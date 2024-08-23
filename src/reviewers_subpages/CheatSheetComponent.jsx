@@ -10,10 +10,12 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
   return (
     <div className="mb-4">
       <div
-        className={` hover:shadow-md cursor-pointer border-2 border-t-white border-x-white h-fit w-full flex justify-between items-center p-4 ${
-          isOpen
-            ? "border-t-inherit border-x-inherit rounded-t-lg shadow-md"
-            : ""
+        className={`${
+          theme === "dark"
+            ? "border-[#1e2941] hover:shadow-[#1e2941]"
+            : "border-gray-100 hover:shadow-gray-100"
+        } hover:shadow-md  transition-all cursor-pointer border-2 h-fit w-full flex justify-between items-center p-4 ${
+          isOpen && "rounded-t-lg"
         } `}
         onClick={() => setIsOpen((prev) => !prev)}
       >
@@ -41,7 +43,11 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
       </div>
 
       {isOpen && (
-        <div className="grid grid-rows-2 p-8 border rounded-b-lg gap-y-5">
+        <div
+          className={`${
+            theme === "dark" ? "border-[#1e2941]" : "border-gray-200"
+          } grid grid-rows-2 p-8 border rounded-b-lg gap-y-5`}
+        >
           <div
             className={`grid grid-cols-2 border-dashed border-b-2  pb-6 max-[800px]:grid-cols-1 max-[800px]:gap-y-5 ${
               theme === "dark" ? "border-gray-800" : "border-gray-200"
@@ -65,7 +71,7 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
             </div>
           </div>
           <a
-            className=" flex items-center justify-center"
+            className="flex items-center justify-center "
             href={`${`files/${cheatSheetData["fileName"]}.pdf`}`}
             download
           >

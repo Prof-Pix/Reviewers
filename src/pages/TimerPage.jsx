@@ -21,6 +21,11 @@ const TimerPage = () => {
     //Get the name from the input
     const name = inputRef.current.value;
 
+    if (!name) {
+      alert("Please enter required fields.");
+      return;
+    }
+
     //Perform addition of timers
     handleAddNewTimer(name);
 
@@ -58,7 +63,7 @@ const TimerPage = () => {
   return (
     <div className="min-h-[90vh] w-full relative">
       {/*Floating Button */}
-      <div className="flex justify-end z-50 shadow-lg">
+      <div className="z-50 flex justify-end shadow-lg">
         <button
           onClick={toggleFormModal}
           className={`${isModalOpen ? "invisible" : "visible"} ${
@@ -72,7 +77,7 @@ const TimerPage = () => {
         </button>
       </div>
 
-      <div className="mt-5 p-3">
+      <div className="p-3 mt-5">
         {timers.length == 0 ? (
           <div className="flex justify-center h-[85vh] items-center">
             <p className={`${theme === "dark" ? "text-white" : "text-black"}`}>
@@ -101,11 +106,11 @@ const TimerPage = () => {
 
       {/*Modal Form*/}
 
-      <dialog ref={dialogRef} className="bg-white bg-opacity-0 h-full w-full ">
-        <div className="flex justify-center items-center h-full ">
+      <dialog ref={dialogRef} className="w-full h-full bg-white bg-opacity-0 ">
+        <div className="flex items-center justify-center h-full ">
           <form
             onSubmit={(e) => handleSubmitForm(e)}
-            className="border bg-white border-gray-200 w-72 px-4 py-5 rounded-md shadow-md "
+            className="px-4 py-5 bg-white border border-gray-200 rounded-md shadow-md w-72 "
           >
             <div className="flex justify-end">
               <button type="button" onClick={toggleFormModal}>
@@ -119,15 +124,15 @@ const TimerPage = () => {
               <label className="text-sm font-medium">Timer Name</label>
               <input
                 ref={inputRef}
-                className="border border-gray-200 rounded p-2 text-sm"
+                className="p-2 text-sm border border-gray-200 rounded"
                 placeholder="Enter a name for your timer"
               />
             </div>
             <div className="h-7" />
-            <div className=" flex justify-center">
+            <div className="flex justify-center ">
               <button
                 type="submit"
-                className="bg-black px-3 py-1 text-white rounded-lg"
+                className="px-3 py-1 text-white bg-black rounded-lg"
               >
                 Add Timer
               </button>

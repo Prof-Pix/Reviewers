@@ -6,16 +6,21 @@ import QuizComponent from "./QuizComponent";
 import { TiArrowBack } from "react-icons/ti";
 
 import SearchBar from "../components/SearchBar";
-import { useFetchCoursesData } from "../customHooks/useFetchData";
+import { useFetchData } from "../customHooks/useFetchData";
 import { useGlobalContext } from "../provider/Provider";
 
 const Subject = () => {
-  const { subjectname } = useParams();
-  const { courses } = useFetchCoursesData();
+  const { getCourseData } = useFetchData();
+  const { academicYear, subjectName } = useParams();
   const { theme } = useGlobalContext();
 
-  const [courseData, setCourseData] = useState(null);
-  const [courseQuizzes, setCourseQuizzes] = useState([]);
+  const [courseData, setCourseData] = useState(
+    getCourseData(academicYear, subjectName) || []
+  );
+  console.log(courseData);
+  const [courseQuizzes, setCourseQuizzes] = useState(
+    courseData["quizzes"] || []
+  );
 
   const [searchText, setSearchText] = useState("");
 
@@ -23,28 +28,12 @@ const Subject = () => {
     return courseQuiz.quizName.toLowerCase().includes(searchText.toLowerCase());
   });
 
-  const findSubjectIndex = () => {
-    for (let i = 0; i < courses.length; i++) {
-      if (courses[i].courseName == subjectname) {
-        return i;
-      }
-    }
-  };
-
-  useEffect(() => {
-    const index = findSubjectIndex();
-    setCourseData(courses[index]);
-
-    if (courseData != null) {
-      setCourseQuizzes(courseData["quizzes"]);
-    }
-  });
   return (
     <>
       {!courseData ? (
         <p>Loading...</p>
       ) : (
-        <div className="pt-10 pb-11 relative">
+        <div className="relative pt-10 pb-11">
           <div className="flex justify-end">
             <Link to="/reviewers">
               <div
@@ -62,7 +51,7 @@ const Subject = () => {
             </Link>
           </div>
           <div className="px-4">
-            <div className="text-center text-2xl pt-10 pb-4 ">
+            <div className="pt-10 pb-4 text-2xl text-center ">
               <h1
                 className={`font-extrabold line-clamp-3 ${
                   theme === "dark" ? "text-white" : "text-black"
