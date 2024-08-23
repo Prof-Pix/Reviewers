@@ -8,7 +8,7 @@ const Main = () => {
   const { theme } = useGlobalContext();
   return (
     <div
-      className={`flex justify-center h-[100dvh] relative ${
+      className={`flex min-h-[100vh] h-auto justify-center relative ${
         theme === "dark" ? "bg-dark" : "bg-light"
       }`}
     >

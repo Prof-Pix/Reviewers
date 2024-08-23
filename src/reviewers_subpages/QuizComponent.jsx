@@ -46,44 +46,52 @@ const QuizComponent = ({ quizData }) => {
         <div
           className={`${
             theme === "dark" ? "border-[#1e2941]" : "border-gray-200"
-          } grid grid-rows-2 p-8 border rounded-b-lg shadow-sm`}
+          } grid grid-rows-1 p-8 border rounded-b-lg shadow-sm`}
         >
           <div
-            className={`items-center flex pb-6 border-dashed border-b-2 ${
+            className={`items-center flex pb-6 mb-3 border-dashed border-b-2 ${
               theme === "dark" ? "border-gray-800" : "border-gray-200"
             }`}
           >
-            <div>
-              <a
-                href={quizData.quizLink}
-                target="_blank"
-                className={`text-base underline line-clamp-1 ${
-                  theme === "dark" ? "text-white" : "text-black"
-                }`}
-              >
-                {quizData.quizLink}
-              </a>
+            <div className="grid grid-cols-2 max-[800px]:grid-cols-1 max-[800px]:gap-y-5">
+              <div>
+                <p
+                  className={`text-base font-bold ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >
+                  Description
+                </p>
+              </div>
+              <div>
+                <p
+                  className={`text-base font-light line-clamp-6 ${
+                    theme === "dark" ? "text-white" : "text-black"
+                  }`}
+                >
+                  {quizData.quizDescription}
+                </p>
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 pt-6 max-[800px]:grid-cols-1 max-[800px]:gap-y-5">
-            <div>
-              <p
-                className={`text-base font-bold ${
-                  theme === "dark" ? "text-white" : "text-black"
-                }`}
+          <div className="flex items-center justify-center ">
+            <a
+              href={quizData.quizLink}
+              target="_blank"
+              className={`text-base underline line-clamp-6 ${
+                theme === "dark" ? "text-white" : "text-black "
+              }`}
+            >
+              <button
+                className={`${
+                  theme === "dark"
+                    ? "bg-white text-black"
+                    : "bg-black text-white"
+                } inline-block  px-10 py-2 rounded-lg`}
               >
-                Description
-              </p>
-            </div>
-            <div>
-              <p
-                className={`text-base font-light line-clamp-4 ${
-                  theme === "dark" ? "text-white" : "text-black"
-                }`}
-              >
-                {quizData.quizDescription}
-              </p>
-            </div>
+                Link to Quiz
+              </button>
+            </a>
           </div>
         </div>
       )}

@@ -46,7 +46,7 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
         <div
           className={`${
             theme === "dark" ? "border-[#1e2941]" : "border-gray-200"
-          } grid grid-rows-2 p-8 border rounded-b-lg gap-y-5`}
+          } grid grid-rows-1 p-8 border rounded-b-lg gap-y-5`}
         >
           <div
             className={`grid grid-cols-2 border-dashed border-b-2  pb-6 max-[800px]:grid-cols-1 max-[800px]:gap-y-5 ${
@@ -70,19 +70,23 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
               {cheatSheetData.description}
             </div>
           </div>
-          <a
-            className="flex items-center justify-center "
-            href={`${`files/${cheatSheetData["fileName"]}.pdf`}`}
-            download
-          >
-            <p
-              className={`${
-                theme === "dark" ? "bg-white text-black" : "bg-black text-white"
-              } inline-block  px-10 py-2 rounded-lg`}
+          <div className="flex items-center">
+            <a
+              className="flex items-center justify-center "
+              href={`${`files/${cheatSheetData["fileName"]}.pdf`}`}
+              download
             >
-              Download
-            </p>
-          </a>
+              <button
+                className={`${
+                  theme === "dark"
+                    ? "bg-white text-black"
+                    : "bg-black text-white"
+                } inline-block  px-10 py-2 rounded-lg`}
+              >
+                Download
+              </button>
+            </a>
+          </div>
         </div>
       )}
     </div>
