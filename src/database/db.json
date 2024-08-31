@@ -32,7 +32,18 @@
             "courseCode": "CS 200",
             "courseName": "Principles of Programming Languages",
             "imageName": "ppl",
-            "quizzes": []
+            "quizzes": [
+              {
+                "quizName": "Week [1-3] Part I",
+                "quizLink": "https://knowt.com/flashcards/3b88f309-1d74-416c-a1a0-274da9aef818",
+                "quizDescription": "Programming Concepts and Paradigms, Program Performance and Features, Development of Programming Languages"
+              },
+              {
+                "quizName": "Week [1-3] Part II",
+                "quizLink": "https://knowt.com/flashcards/9e5f9696-295c-4390-9cac-5ebec8c0a5ed",
+                "quizDescription": "Programming, Prominent Figures in Programming History, Evolution of Programming Languages, Programming Language Design and Development, Compilers and Interpreters Page, Types of Programming Languages Page, Elements of a Programming Language"
+              }
+            ]
           },
           {
             "courseCode": "MATH 009CS",
