@@ -57,7 +57,7 @@ const Subject = () => {
                   theme === "dark" ? "text-white" : "text-black"
                 }`}
               >
-                {courseData.courseName}
+                {`${courseData.courseCode} - ${courseData.courseName}`}
               </h1>
             </div>
             <div

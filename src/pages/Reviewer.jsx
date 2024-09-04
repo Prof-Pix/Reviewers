@@ -6,9 +6,10 @@ import SubjectComponent from "../components/SubjectComponent";
 import SearchBar from "../components/SearchBar";
 import { useFetchData } from "../customHooks/useFetchData";
 import { useGlobalContext } from "../provider/Provider";
+import SearchQuizList from "../reviewers_subpages/SearchQuizList";
 
 const Reviewer = () => {
-  const { academicYearsData, getAcademicYearData, getCourses } = useFetchData();
+  const { academicYearsData, getAcademicYearData } = useFetchData();
   const { theme } = useGlobalContext();
 
   const [searchText, setSearchText] = useState("");
@@ -30,6 +31,15 @@ const Reviewer = () => {
       );
     }) || [];
 
+  const filteredQuizzes = academicYearcourses?.flatMap((course) =>
+    course.quizzes
+      .filter((quiz) =>
+        quiz.quizName.toLowerCase().includes(searchText.toLowerCase())
+      )
+      .map((quiz) => ({ courseData: course, quizData: quiz }))
+  );
+  console.log(filteredQuizzes);
+
   const handleAcademicYearChange = (event) => {
     setSelectedAcademicYear(event.target.value);
     localStorage.setItem("academicYear", event.target.value);
@@ -49,20 +59,20 @@ const Reviewer = () => {
 
   return (
     <div className="pb-14">
-      <div className="px-10 pt-10 grid grid-cols-1 min-[550px]:grid-cols-2 min-[550px]:place-content-between place-items-end gap-y-2 pb-7">
+      <div className="px-5 pt-10 grid grid-cols-1 min-[550px]:grid-cols-2 min-[550px]:place-content-between place-items-end gap-y-2 pb-7">
         <h1
           className={`font-extrabold text-3xl min-[550px]:place-self-start ${
             theme === "dark" ? "text-white" : "text-black"
           }`}
         >
-          Subjects
+          Courses
         </h1>
 
         <div>
           <select
             className={`${
               theme === "dark" && "shadow-white shadow-sm"
-            } px-3 py-2 border rounded min-[550px]:place-self-end shadow-md`}
+            } px-3 py-2 border text-sm rounded min-[550px]:place-self-end shadow-md min-[550px]:text-base`}
             onChange={handleAcademicYearChange}
             value={selectedAcademicYear}
           >
@@ -100,7 +110,7 @@ const Reviewer = () => {
       )}
 
       <div
-        className={`w-full grid gap-4 grid-cols-1 px-6 min-[500px]:px-14 min-[550px]:px-20 min-[580px]:px-24 min-[600px]:grid-cols-2 min-[600px]:px-6  min-[830px]:px-16  min-[950px]:px-24 min-[1000px]:grid-cols-3 min-[1000px]:px-6 min-[1200px]:px-20`}
+        className={`w-full mb-5 grid gap-4 grid-cols-1 px-6 min-[500px]:px-14 min-[550px]:px-20 min-[580px]:px-24 min-[600px]:grid-cols-2 min-[600px]:px-6  min-[830px]:px-16  min-[950px]:px-24 min-[1000px]:grid-cols-3 min-[1000px]:px-6 min-[1200px]:px-20`}
       >
         {filteredCourses?.map((course, index) => {
           return (
@@ -113,10 +123,28 @@ const Reviewer = () => {
           );
         })}
       </div>
+      {searchText.length != 0 && filteredQuizzes.length != 0 && (
+        <div>
+          <div className="mb-2">
+            <p>Quizzes</p>
+          </div>
+          <div className="flex flex-col gap-y-1">
+            {filteredQuizzes?.map((quiz, index) => (
+              <SearchQuizList
+                key={index}
+                courseCode={quiz.courseData.courseCode}
+                quizName={quiz.quizData.quizName}
+                courseName={quiz.courseData.courseName}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       <SearchBar
         value={searchText}
         setSearchText={setSearchText}
-        placeholderText={"Search subjects..."}
+        placeholderText={"Search courses/quizzes..."}
       />
     </div>
   );

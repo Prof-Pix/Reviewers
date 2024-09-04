@@ -14,19 +14,24 @@
             "courseCode": "CS 003",
             "courseName": "Computer Architecture and Organization",
             "imageName": "comp_arch_and_org",
-            "quizzes": [
-              {
-                "quizName": "Prelim Examination",
-                "quizLink": "https://quizlet.com/828218386/prelim-examination-flash-cards/?i=3xldfb&x=1jqt",
-                "quizDescription": "Mobile Computing Prelim Examination"
-              }
-            ]
+            "quizzes": []
           },
           {
             "courseCode": "CS 403",
             "courseName": "Intelligent Agents",
             "imageName": "intelligent_agents",
-            "quizzes": []
+            "quizzes": [
+              {
+                "quizName": "Week [1-3] Module 1",
+                "quizLink": "https://knowt.com/flashcards/c254e309-7b37-45ba-ad4d-51a30f848479",
+                "quizDescription": "Introduction to AI, Python vs Google Colab, Application of Artificial Intelligent and Types, Intelligent Agent: Definition and Types, Artificial Intelligent: History, Agents: Types of Agents, Simple Reflex Agent Example, Agents: Agent Environment"
+              },
+              {
+                "quizName": "Week [1-3] Module 1 Powerpoint Presentations",
+                "quizLink": "https://knowt.com/flashcards/a9d13f98-14ee-49fb-b463-4a480fa060ed",
+                "quizDescription": "Artificial Intelligent - History.pptx, Intelligent Agent - Definition and Types.pptx, Introduction to Artifical Intelligence "
+              }
+            ]
           },
           {
             "courseCode": "CS 200",

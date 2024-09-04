@@ -70,7 +70,7 @@ const CheatSheetComponent = ({ cheatSheetData }) => {
               {cheatSheetData.description}
             </div>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center justify-center">
             <a
               className="flex items-center justify-center "
               href={`${`files/${cheatSheetData["fileName"]}.pdf`}`}

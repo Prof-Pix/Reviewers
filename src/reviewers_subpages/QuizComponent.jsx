@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from "react-icons/io";
 import { useGlobalContext } from "../provider/Provider";
+import { useLocation } from "react-router-dom";
 
 const QuizComponent = ({ quizData }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const [isOpen, setIsOpen] = useState(
+    location.state?.quizName == quizData.quizName ? true : false
+  );
   const { theme } = useGlobalContext();
+
   return (
     <div className="mb-4 ">
       <div
@@ -49,7 +55,7 @@ const QuizComponent = ({ quizData }) => {
           } grid grid-rows-1 p-8 border rounded-b-lg shadow-sm`}
         >
           <div
-            className={`items-center flex pb-6 mb-3 border-dashed border-b-2 ${
+            className={`items-center flex pb-5 mb-6 border-dashed border-b-2 ${
               theme === "dark" ? "border-gray-800" : "border-gray-200"
             }`}
           >
