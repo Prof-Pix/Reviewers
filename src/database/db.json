@@ -8,13 +8,25 @@
             "courseCode": "CS 002",
             "courseName": "Advance Object-Oriented Programming",
             "imageName": "advanced_oop",
-            "quizzes": []
+            "quizzes": [
+              {
+                "quizName": "Week [1-3] Module 1",
+                "quizLink": "https://knowt.com/flashcards/110a18b6-febd-4ae2-b2a5-f31955c50c6a",
+                "quizDescription": " Topic 1.1 Introduction, Topic 1.2 Objects, Topic 1.3 Defining Object Model, Topic 1.4 Classes, Topic 1.5 Constructor, Topic 1.6 Running Program with Objects, Topic 1.7 Encapsulation, Review of Basic Concepts in Java.pdf"
+              }
+            ]
           },
           {
             "courseCode": "CS 003",
             "courseName": "Computer Architecture and Organization",
             "imageName": "comp_arch_and_org",
-            "quizzes": []
+            "quizzes": [
+              {
+                "quizName": "Week 1-3 Module 1: Introduction to Computer Architecture",
+                "quizLink": "https://knowt.com/flashcards/c5c61bef-08bb-4b23-9518-6ed635ddcfe8",
+                "quizDescription": "1.1 Basics of Computers - Number System, 1.2 Number System Conversion,  1.3 Computer Components, Chapter 1 - Part 1 Computer Components"
+              }
+            ]
           },
           {
             "courseCode": "CS 403",
