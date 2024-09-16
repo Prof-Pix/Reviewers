@@ -80,7 +80,11 @@ const NavBar = () => {
 
         <div className={`hidden min-[850px]:block`}>
           <ul className="flex items-center">
-            <div className="flex items-center pr-3 mr-2 border-r border-black">
+            <div
+              className={`flex items-center pr-3 mr-2 border-r ${
+                theme === "light" ? "border-black" : "border-white"
+              }`}
+            >
               <button onClick={handleSwitchTheme}>
                 {theme === "light" ? <FaSun size={25} /> : <FaMoon size={25} />}
               </button>

@@ -8,14 +8,14 @@ const SearchBar = ({ setSearchText, searchText, placeholderText }) => {
   return (
     <>
       <div className="flex justify-center items-center fixed bottom-0 w-full max-w-[80rem] pl-5 pr-9 shadow-lg">
-        <div className="border-2 h-fit p-3 rounded-l-md bg-white">
+        <div className="p-3 bg-white border-2 h-fit rounded-l-md">
           <CiSearch size={16} />
         </div>
         <input
           onChange={(e) => handleChangeSearchText(e.target.value)}
           value={searchText}
           type="text"
-          className="border-2 rounded-r-md p-2 w-full"
+          className="w-full p-2 border-2 rounded-r-md"
           placeholder={placeholderText}
         />
       </div>

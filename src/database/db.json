@@ -79,6 +79,11 @@
                 "quizName": "Week [1-3] Part II",
                 "quizLink": "https://knowt.com/flashcards/9e5f9696-295c-4390-9cac-5ebec8c0a5ed",
                 "quizDescription": "Programming, Prominent Figures in Programming History, Evolution of Programming Languages, Programming Language Design and Development, Compilers and Interpreters Page, Types of Programming Languages Page, Elements of a Programming Language"
+              },
+              {
+                "quizName": "Week 7 - 9: Data Types",
+                "quizLink": "https://knowt.com/flashcards/68c29edc-0bbf-444a-afc7-aa6011f1f45f",
+                "quizDescription": " 1. Type Classifications, 2. Type Systems,  3. Type Assignment, 4. Type Strength, 5. Allocations, 6. Pointers and Garbage Collection Attachment, 7. Data Types.pdf"
               }
             ]
           },
