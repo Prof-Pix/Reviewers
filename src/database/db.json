@@ -86,6 +86,11 @@
                 "quizDescription": "Programming, Prominent Figures in Programming History, Evolution of Programming Languages, Programming Language Design and Development, Compilers and Interpreters Page, Types of Programming Languages Page, Elements of a Programming Language"
               },
               {
+                "quizName": "Week 4 - 5: Syntax and Semantics",
+                "quizLink": "https://knowt.com/flashcards/1d130053-e808-420f-b7a9-f46578ea571e",
+                "quizDescription": "Week 4 - 5: Syntax and Semantics"
+              },
+              {
                 "quizName": "Week 7 - 9: Data Types",
                 "quizLink": "https://knowt.com/flashcards/68c29edc-0bbf-444a-afc7-aa6011f1f45f",
                 "quizDescription": " 1. Type Classifications, 2. Type Systems,  3. Type Assignment, 4. Type Strength, 5. Allocations, 6. Pointers and Garbage Collection Attachment, 7. Data Types.pdf"
@@ -101,6 +106,21 @@
                 "quizName": "Module 1 Quiz",
                 "quizLink": "https://knowt.com/flashcards/024ce5bc-c4d9-4787-8782-dee9772004ac",
                 "quizDescription": "Nature of Statistics, Descriptive and Inferential Statistics, Population and Sample, Variables and Measurement, Levels of Measurement, Summation Notation"
+              },
+              {
+                "quizName": "Q1P. Quiz 1: Fundamentals of Statistics",
+                "quizLink": "https://knowt.com/flashcards/73c52313-a3c7-41b9-8676-1421d553a1e2",
+                "quizDescription": "Q1P. Quiz 1: Fundamentals of Statistics"
+              },
+              {
+                "quizName": "Module 2 (Week 4 to Week 6): Descriptive Statistics",
+                "quizLink": "https://knowt.com/flashcards/c14a1540-72f7-4ee7-9113-0056aa7211f2",
+                "quizDescription": " 2.1 Classification of data, 2.2 Kinds of Sampling, 2.3 Data Collection Methods, 2.4 General Classification of Collecting Data, 2.5 Frequency Distribution Table, 2. 6 Measures of Central Tendency (Ungrouped Data ), 2.7 Measures of Central Tendency (Grouped Data ), 2.8 Measures of Skewness, 2.9 Measures of Dispersion ( Variability ), 2.10 Measure of Location, 2.11 Module 2 Summary of Topics"
+              },
+              {
+                "quizName": "Q2P. Quiz: Mathematics as a Tool",
+                "quizLink": "https://knowt.com/flashcards/b2d634de-c503-4a4b-b379-f8e7b8ca9f11",
+                "quizDescription": "Q2P. Quiz: Mathematics as a Tool"
               }
             ]
           }
